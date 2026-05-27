@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <title>Create Post</title>
+     {{ form.media }}
+  </head>
+  <body>
+    <h1>Create Post</h1>
+
+    <div class="container mt-5">
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+
+        {{ form.as_p }}
+
+        <button class="btn btn-dark">Publish</button>
+      </form>
+    </div>
+  </body>
+</html>
