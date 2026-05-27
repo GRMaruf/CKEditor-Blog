@@ -3,9 +3,14 @@ from .models import Post
 from .forms import PostForm
 from django.views.generic import UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.http import HttpResponse
 
 def home(request):
     posts = Post.objects.all().order_by('-created_at')
+
+    search_post = request.GET.get('search_post')
+    if search_post:
+        return HttpResponse("This functionality NOT ADDED.")
 
     return render(request, 'blog/home.html', {
         'posts': posts

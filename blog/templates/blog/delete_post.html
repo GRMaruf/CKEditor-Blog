@@ -1,26 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Delete Post</title>
-</head>
-<body>
+{% extends 'master/base.html' %}
 
-<h1>Delete Post</h1>
+{% block title %}
+  Delete Post
+{% endblock %}
 
-<p>
-    Are you sure you want to delete:
-    <strong>{{ object.title }}</strong> ?
-</p>
+{% block body %}
+  <div class="text-center p-5">
+    <h1>Delete Post</h1>
 
-<form method="POST">
+    <p>
+      Are you sure you want to delete:
+      <strong>{{ object.title }}</strong> ?
+    </p>
 
-    {% csrf_token %}
+    <form method="POST">
+      {% csrf_token %}
 
-    <button type="submit">
-        Yes, Delete
-    </button>
-
-</form>
-
-</body>
-</html>
+      <button type="submit" class="btn btn-primary">Yes, Delete</button>
+    </form>
+  </div>
+{% endblock %}

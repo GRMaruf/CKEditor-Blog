@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Update Post</title>
+{% extends 'master/base.html' %}
 
-    {{ form.media }}
-</head>
-<body>
+{% block title %}
+  Update Post
+{% endblock %}
 
-<h1>Update Post</h1>
+{% block extra %}
+  {{ form.media }}
+{% endblock %}
 
-<form method="POST" enctype="multipart/form-data">
-
+{% block body %}
+    <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-
-    {{ form.as_p }}
-
-    <button type="submit">
-        Update
-    </button>
-
-</form>
-
-</body>
-</html> 
+    <div class="m-2">
+      Title: {{ form.title }} Thumbnail: {{ form.thumbnail }}
+    <button class="btn btn-primary">Update</button>
+    </div>
+    {{ form.content }}
+  </form>
+{% endblock %}

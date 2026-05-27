@@ -125,3 +125,49 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_CONFIGS = {
+    "default": {
+        # ===== Toolbar (rich + practical) =====
+        "toolbar": "Custom",
+        "toolbar_Custom": [
+            ["Bold", "Italic", "Underline", "Strike", "RemoveFormat"],
+            ["Blockquote", "CodeSnippet"],
+            ["NumberedList", "BulletedList", "Outdent", "Indent"],
+            ["JustifyLeft", "JustifyCenter", "JustifyRight"],
+            ["Link", "Unlink", "Anchor"],
+            ["Image", "Table", "HorizontalRule", "SpecialChar"],
+            ["Format", "Font", "FontSize"],
+            ["TextColor", "BGColor"],
+            ["Maximize", "ShowBlocks", "Source"],
+            ["Undo", "Redo"],
+        ],
+
+        # ===== Features =====
+        "height": "75vh",
+        "width": "auto",
+        "removePlugins": "stylesheetparser",
+        "allowedContent": True,
+        'resize_enabled': False,
+
+        # ===== Extra plugins (important for modern editor use) =====
+        "extraPlugins": ",".join([
+            "uploadimage",      # image upload
+            "image2",          # better image handling
+            "codesnippet",     # code blocks
+            "widget",
+            "lineutils",
+        ]),
+
+        # ===== Code block styling =====
+        "codeSnippet_theme": "monokai_sublime",
+
+        # ===== File upload =====
+        "filebrowserUploadUrl": "/ckeditor/upload/",
+        "filebrowserBrowseUrl": "/ckeditor/browse/",
+
+        # ===== UI improvements =====
+        "uiColor": "#f8f9fa",
+        "removeDialogTabs": "image:advanced;link:advanced",
+    }
+}

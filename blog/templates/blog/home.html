@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Blog</title>
-</head>
-<body>
+{% extends 'master/base.html' %}
 
-<h1>Posts</h1>
+{% block title %}
+  Blog
+{% endblock %}
 
-{% for post in posts %}
+{% block content %}
+  <h1>Posts</h1>
+
+  {% for post in posts %}
     <div style="margin-bottom:40px;">
+      <img src="{{ post.thumbnail.url }}" width="250" />
 
-        <img src="{{ post.thumbnail.url }}" width="250">
-
-        <h2>
-            <a href="{% url 'post_detail' post.id %}">
-                {{ post.title }}
-            </a>
-        </h2>
-
+      <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
     </div>
-{% endfor %}
-
-</body>
-</html>
+  {% endfor %}
+{% endblock %}
